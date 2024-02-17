@@ -1,0 +1,19 @@
+{
+  "name": "digitizeapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "postcss ./src/css/tailwind.css -o ./public/build/tailwind.css --watch"
+  },
+  "author": "sahar",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss-cli": "^0.1.2"
+  },
+  "dependencies": {
+    "postcss-cli": "^11.0.0"
+  }
+}
