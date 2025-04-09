@@ -9,8 +9,11 @@
   "author": "sahar",
   "license": "ISC",
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
+    "@xpd/tailwind-3dtransforms": "^1.0.3",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35",
+    "tailwind-scrollbar": "^3.1.0",
     "tailwindcss-cli": "^0.1.2"
   },
   "dependencies": {

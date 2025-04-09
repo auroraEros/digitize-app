@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="./build/tailwind.css" />
+  </head>
+  <body class="flex justify-center items-center">
+    <div class="bg-gray-100 pt-8 md:pt-0 container 2xl:max-w-screen-2xl">
+      <header
+        class="mb-6 md:mb-12 px-4 md:bg-white md:flex items-center 2xl:justify-center md:shadow-lg md:sticky top-0 z-20"
+      >
+        <div class="md:hidden flex justify-between items-center py-1">
+          <div
+            class="flex justify-center items-center w-7 h-7 rounded-md bg-white shadow-lg"
+          >
+            <div
+              class="flex justify-center items-center w-7 h-7 rounded-md bg-white shadow-lg"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <h1 class="font-bold text-sm text-slate-800">سبد خرید</h1>
+          <div
+            class="flex justify-center items-center w-7 h-7 rounded-md bg-white shadow-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+          </div>
+        </div>
+        <nav class="hidden md:block w-full p-4 container 2xl:max-w-screen-2xl">
+          <div class="flex justify-between items-center w-full">
+            <ul
+              x-data="{navLinks:[
+                             {page:'home', title:'خانه'},
+                             {page:'phone', title:'تلفن همراه'},
+                             {page:'laptop', title:'لپ‌تاپ'},
+                             {page:'watch', title:'ساعت هوشمند'}],
+                   curreentPage: 'home'}"
+              class="flex items-center justify-between gap-x-2"
+            >
+              <!-- class="flex items-center justify-between w-full lg:w-2/5 p-1 ml-16" -->
+              <li>
+                <a class="block font-bold text-lg lg:text-2xl py-2" href="#">
+                  <span class="text-slate-800">دیجی</span>‌<span
+                    class="text-orange-500"
+                    >تایز</span
+                  >
+                </a>
+              </li>
+
+              <template x-for="link in navLinks" :key="link.title">
+                <li>
+                  <a
+                    class="block text-slate-800 lg:text-lg hover:bg-slate-200 rounded-md transition-all duration-100 py-2 px-4"
+                    :class="link.page=== curreentPage? 'font-bold':''"
+                    x-text="link.title"
+                    href="#"
+                  ></a>
+                </li>
+              </template>
+            </ul>
+            <form action="" class="flex-1 max-w-xl mr-2">
+              <div
+                class="flex items-center w-full pr-3 py-3 bg-gray-200 rounded-md"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6 stroke-slate-800"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                  />
+                </svg>
+
+                <input
+                  class="block w-full pr-2 bg-gray-200 text-slate-800 focus:outline-none text-sm lg:text-lg"
+                  type="text"
+                  placeholder="جستجوی نام محصول، برند، مدل..."
+                />
+              </div>
+            </form>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <!-- cart -->
+        <section>
+          <!-- cart container -->
+
+          <div
+            class="flex flex-col md:flex-row md:items-start md:justify-around gap-y-8 p-4"
+          >
+            <div
+              class="flex relative md:shadow-lg flex-col md:w-[60%] md:max-w-[800px] w-full gap-y-2 items-center md:bg-white md:rounded-lg"
+            >
+              <!--descktop back to Homepage button -->
+              <div
+                class="hidden w-full md:flex absolute -top-12 justify-between items-center mb-4"
+              >
+                <h2 class="text-lg text-slate-800">سبد خرید</h2>
+                <a
+                  class="text-orange-400 hover:text-orange-300 transition-all duration-100 text-base"
+                  href="#"
+                  >بازگشت به خانه</a
+                >
+              </div>
+              <!-- cart item 1-->
+              <div
+                class="w-full md:w-4/5 bg-white md:max-w-[890px] rounded-lg py-4 md:py-6 px-2 relative"
+              >
+                <div
+                  class="md:max-w-[800px] flex justify-between items-start gap-x-2"
+                >
+                  <div class="w-full max-w-[57px] flex items-center">
+                    <img
+                      class="block h-auto"
+                      src="../assets/images/apple-watch-7.png"
+                      alt="apple watch"
+                    />
+                  </div>
+                  <div class="w-full flex flex-col gap-y-3">
+                    <h3
+                      class="font-bold text-slate-800 text-sm md:text-base xl:text-lg"
+                    >
+                      ساعت هوشمند اپل سری 6
+                    </h3>
+                    <p
+                      class="text-sm md:text-base text-orange-700 justify-self-end"
+                    >
+                      ٣,٤٥٦,٧٨٩ تومان
+                    </p>
+                  </div>
+                  <div
+                    class="w-[30%] self-end flex flex-col items-center gap-y-4 text-slate-800"
+                  >
+                    <button
+                      class="text-base md:text-lg xl:text-xl text-orange-400"
+                    >
+                      &times;
+                    </button>
+                    <div
+                      class="flex justify-center items-center gap-x-2 text-slate-800"
+                    >
+                      <button
+                        class="text-xs flex justify-center items-center w-4 h-4 rounded-full bg-gray-300"
+                      >
+                        +
+                      </button>
+                      <span
+                        class="text-xs md:text-sm border border-orange-400 p-1"
+                        >5</span
+                      >
+                      <button
+                        class="text-xs text-orange-400 flex justify-center items-center w-4 h-4 rounded-full bg-orange-100"
+                      >
+                        &minus;
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="hidden md:block border-b border-slate-300 w-[80%] absolute bottom-2"
+                  >
+                    &nbsp;
+                  </div>
+                </div>
+              </div>
+              <!-- cart item 2-->
+              <div
+                class="w-full md:w-4/5 bg-white md:max-w-[890px] rounded-lg py-4 md:py-6 px-2 relative"
+              >
+                <div
+                  class="md:max-w-[800px] flex justify-between items-start gap-x-2"
+                >
+                  <div class="w-full max-w-[57px] flex items-center">
+                    <img
+                      class="block h-auto"
+                      src="../assets/images/apple-watch-7.png"
+                      alt="apple watch"
+                    />
+                  </div>
+                  <div class="w-full flex flex-col gap-y-3">
+                    <h3
+                      class="font-bold text-slate-800 text-sm md:text-base xl:text-lg"
+                    >
+                      ساعت هوشمند اپل سری 6
+                    </h3>
+                    <p
+                      class="text-sm md:text-base text-orange-700 justify-self-end"
+                    >
+                      ٣,٤٥٦,٧٨٩ تومان
+                    </p>
+                  </div>
+                  <div
+                    class="w-[30%] self-end flex flex-col items-center gap-y-4 text-slate-800"
+                  >
+                    <button
+                      class="text-base md:text-lg xl:text-xl text-orange-400"
+                    >
+                      &times;
+                    </button>
+                    <div
+                      class="flex justify-center items-center gap-x-2 text-slate-800"
+                    >
+                      <button
+                        class="text-xs flex justify-center items-center w-4 h-4 rounded-full bg-gray-300"
+                      >
+                        +
+                      </button>
+                      <span
+                        class="text-xs md:text-sm border border-orange-400 p-1"
+                        >5</span
+                      >
+                      <button
+                        class="text-xs text-orange-400 flex justify-center items-center w-4 h-4 rounded-full bg-orange-100"
+                      >
+                        &minus;
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="hidden md:block border-b border-slate-300 w-[80%] absolute bottom-2"
+                  >
+                    &nbsp;
+                  </div>
+                </div>
+              </div>
+
+              <!-- cart item 3-->
+              <div
+                class="w-full md:w-4/5 bg-white md:max-w-[890px] rounded-lg py-4 md:py-6 px-2 relative"
+              >
+                <div
+                  class="md:max-w-[800px] flex justify-between items-start gap-x-2"
+                >
+                  <div class="w-full max-w-[57px] flex items-center">
+                    <img
+                      class="block h-auto"
+                      src="../assets/images/apple-watch-7.png"
+                      alt="apple watch"
+                    />
+                  </div>
+                  <div class="w-full flex flex-col gap-y-3">
+                    <h3
+                      class="font-bold text-slate-800 text-sm md:text-base xl:text-lg"
+                    >
+                      ساعت هوشمند اپل سری 6
+                    </h3>
+                    <p
+                      class="text-sm md:text-base text-orange-700 justify-self-end"
+                    >
+                      ٣,٤٥٦,٧٨٩ تومان
+                    </p>
+                  </div>
+                  <div
+                    class="w-[30%] self-end flex flex-col items-center gap-y-4 text-slate-800"
+                  >
+                    <button
+                      class="text-base md:text-lg xl:text-xl text-orange-400"
+                    >
+                      &times;
+                    </button>
+                    <div
+                      class="flex justify-center items-center gap-x-2 text-slate-800"
+                    >
+                      <button
+                        class="text-xs flex justify-center items-center w-4 h-4 rounded-full bg-gray-300"
+                      >
+                        +
+                      </button>
+                      <span
+                        class="text-xs md:text-sm border border-orange-400 p-1"
+                        >5</span
+                      >
+                      <button
+                        class="text-xs text-orange-400 flex justify-center items-center w-4 h-4 rounded-full bg-orange-100"
+                      >
+                        &minus;
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- cart price -->
+            <div
+              class="flex flex-col md:block md:max-w-[480px] gap-y-5 w-full md:w-[35%]"
+            >
+              <!-- mobile -->
+              <div
+                class="md:hidden w-full text-sm relative bg-white py-4 px-2 rounded-lg"
+              >
+                <p class="flex justify-between items-center mb-7">
+                  <span class="text-slate-900">مجموع قیمت:</span>
+                  <span class="text-orange-700">۱۰,۳۷۰,۳۶۷تومان</span>
+                </p>
+                <p class="text-xs text-slate-800">کد تخفیف دارید؟</p>
+              </div>
+
+              <!-- descktop -->
+
+              <div
+                class="hidden md:flex bg-white px-4 py-2 rounded-lg flex-col gap-y-4 text-slate-900 md:text-sm xl:text-lg md:mb-5 md:shadow-lg"
+              >
+                <!-- price -->
+                <p class="flex justify-between items-center mb-7">
+                  <span class="text-slate-900 font-bold">مجموع قیمت:</span>
+                  <span class="text-orange-700">۱۰,۳۷۰,۳۶۷تومان</span>
+                </p>
+                <!-- offer -->
+
+                <form class="flex justify-between items-center w-full">
+                  <label class="" for="offer">کد تخفیف:</label>
+                  <div class="w-1/2 flex rounded-lg backface-hidden">
+                    <input
+                      class="block w-3/4 border-t border-r border-b rounded-lg outline-none border-slate-300 bg-slate-100"
+                      type="text"
+                      id="offer"
+                    />
+                    <button
+                      class="bg-orange-400 text-white text-xs w-1/3 block border-t border-l border-b border-orange-600 -mr-3 rounded-lg cursor-pointer hover:scale-110 transition-all duration-100"
+                      type="submit"
+                    >
+                      تائید
+                    </button>
+                  </div>
+                </form>
+                <p class="w-full flex justify-between mb-6">
+                  <span class="font-bold">تخفیف:</span>
+                  <span class="text-orange-700">۳۷,۳۶۷تومان</span>
+                </p>
+                <p class="flex justify-between items-center mb-7">
+                  <span class="text-slate-900 font-bold">قیمت نهایی:</span>
+                  <span class="text-orange-700">۱۰,۳۷۰,۳۶۷تومان</span>
+                </p>
+              </div>
+
+              <div class="">
+                <button
+                  class="block w-full bg-orange-400 text-slate-50 py-2 rounded-lg text-center mb-4 cursor-pointer hover:opacity-80 transition-all duration-100 md:shadow-lg"
+                >
+                  ادامه فرآیند خرید
+                </button>
+                <button
+                  class="hidden md:block w-full border border-orange-400 text-orange-400 py-2 rounded-lg text-center cursor-pointer hover:text-orange-300 transition-all duration-100 md:shadow-lg"
+                >
+                  انصراف از خرید
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer
+        class="md:bg-white md:pt-8 md:pb-4 md:px-8 md:rounded-t-lg md:mt-16 shadow-[0_-4px_8px_0_rgba(0,0,0,.1)]"
+      >
+        <!-- descltop footer -->
+        <div class="hidden md:flex items-center mb-6 pr-1">
+          <img
+            src="/assets/images/Digitize Logo.png"
+            alt="Digitize App Logo"
+            class="block max-w-full w-14 h-14"
+          />
+          <p class="font-bold text-2xl mr-2">
+            <span class="text-slate-800">دیجی</span>‌<span
+              class="text-orange-500"
+              >تایز</span
+            >
+          </p>
+        </div>
+        <div class="hidden md:flex justify-between items-start w-full">
+          <p class="hidden md:block text-xl w-[40%] pr-1">
+            <span>
+              دیجی‌تایز عرضه کننده جدیدترین محصولات الکترونیکی نظیر لپ‌تاپ، گوشی
+              هوشمند و ساعت هوشمند می‌باشد.
+            </span>
+            <span>دیجی‌تایز افتخار این را داشته که به </span>
+            <span class="text-orange-400">٢٣٣٥٧٧ نفر</span>
+            <span>تا به اکنون خدمت‌رسانی داشته باشد.</span>
+          </p>
+
+          <div class="hidden md:flex flex-col items-center w-1/5 text-center">
+            <h2 class="mb-5 font-bold text-xl text-slate-800">محصولات</h2>
+            <a href="#" class="text-slate-800 text-lg hover:text-slate-500 mb-5"
+              >تلفن همراه</a
+            >
+            <a href="#" class="text-slate-800 text-lg hover:text-slate-500 mb-5"
+              >لپ‌تاپ</a
+            >
+            <a href="#" class="text-slate-800 text-lg hover:text-slate-500"
+              >ساعت هوشمند</a
+            >
+          </div>
+
+          <div class="hidden md:flex flex-col gap-y-4 items-end w-1/5 self-end">
+            <div class="max-w-[150px]">
+              <img
+                class="block h-auto"
+                src="../assets/images/map_thumbnail.png"
+                alt="location of DigitizeApp"
+              />
+            </div>
+            <div class="flex items-center relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 stroke-orange-400"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                />
+              </svg>
+              <span class="ml-1 text-xl text-slate-800 absolute top-1 left-7"
+                >١٣٣٤٥-٠٢١</span
+              >
+            </div>
+            <div class="flex items-center relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 stroke-orange-400"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+                />
+              </svg>
+              <span class="ml-1 text-xl text-slate-800 absolute top-0 left-7"
+                >info@digitize.com</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- mobile footer -->
+        <nav
+          x-data="{navItems:
+      [{page:'home',title:'خانه', icon:'m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25'},
+      {page:'category',title:'دسته‌بندی', icon:'M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z'},
+      {page:'cart',title:'سبد خرید', icon:'M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z'},
+      {page:'favorite',title:'علاقه‌مندی',icon:'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z'}],
+      curreentPage:'home',
+    
+    }"
+          class="flex justify-between items-center bg-white py-4 px-8 rounded-t-md md:hidden"
+        >
+          <template x-for="item in navItems" :key="item.title">
+            <a href="#" class="flex items-center text-gray-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+                :class="curreentPage===item.page?'fill-slate-800':'fill-gray-400'"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  :d="item.icon"
+                />
+              </svg>
+
+              <span
+                class="pr-3 pt-1 text-base"
+                :class="curreentPage===item.page?'text-slate-800':''"
+                x-show="item.title==='خانه'"
+                x-text="item.title"
+              ></span>
+            </a>
+          </template>
+        </nav>
+      </footer>
+    </div>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </body>
+</html>

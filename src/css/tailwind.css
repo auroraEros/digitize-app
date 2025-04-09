@@ -1,4 +1,13 @@
 @import url("/src/css/fonts.css");
 @tailwind base;
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(251 146 60);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
 @tailwind components;
 @tailwind utilities;

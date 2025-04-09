@@ -1,11 +1,15 @@
 module.exports = {
-  content: ["./public/**/*.{html,js}"],
+  content: ["./public/**/*.{html,js}", "./src/js/index.js"],
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
-        sans: ["vazir"],
+        sans: ["iranyekan"],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("@xpd/tailwind-3dtransforms"),
+    require("@tailwindcss/typography"),
+  ],
 };
