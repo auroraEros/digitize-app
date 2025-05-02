@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./build/tailwind.css" />
   </head>
   <body class="flex justify-center items-center">
-    <!-- class="bg-gray-100 pt-8 md:pt-0" -->
     <div
       class="bg-gray-100 pt-8 md:pt-0 container 2xl:max-w-screen-2xl relative"
     >
@@ -17,7 +16,7 @@
         <div class="md:hidden flex justify-between items-center py-1">
           <img
             class="max-w-full w-12 h-10 block"
-            src="/assets/images/Digitize Logo.png"
+            src="./assets/images/Digitize Logo.png"
             alt=""
           />
 
@@ -72,6 +71,13 @@
                 ></a>
               </li>
             </template>
+            <li>
+              <a
+                class="block text-slate-800 lg:text-lg hover:bg-slate-200 rounded-md transition-all duration-100 py-2 px-4"
+                href="cart.html"
+                >🛒 سبد خرید
+              </a>
+            </li>
           </ul>
           <form action="" class="flex-1 max-w-xl mr-2">
             <div
@@ -159,6 +165,203 @@
           class="grid grid-cols-12 grid-rows-[55px_minmax(500px,_1fr) md:gap-8 px-4"
         >
           <!-- sidebar -->
+          <div
+            x-data="{brands:['اپل','سامسونگ','شیائومی','هووای'],
+                   colors:['زرد','سبز','آبی','قرمز','بنفش','صورتی'],
+                    brandFilter:false,
+                    colorFilter:false,
+                    priceFilter:false}"
+            class="hidden md:block md:col-span-4 lg:col-span-3 xl:col-span-2 row-span-2"
+          >
+            <div
+              class="px-4 py-6 bg-white shadow-lg rounded-lg max-h-[calc(100vh_-_105px)] overflow-auto md:sticky top-[105px]"
+            >
+              <h2 class="font-bold text-orange-400 text-xl mb-5">دسته‌بندی</h2>
+              <ul
+                x-data="{sideLinks:[{page:'phone', title:'تلفن همراه',icon:'M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3'},
+                           {page:'laptop', title:'لپ‌تاپ',icon:'M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25'},
+                           {page:'watch', title:'ساعت هوشمند',icon:'M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'}],
+                 curreentCategory: 'phone'}"
+                class="w-full pb-3 border-b border-slate-200 mb-4"
+              >
+                <template x-for="link in sideLinks" :key="link.title">
+                  <li class="flex items-center pb-5">
+                    <div class="relative">
+                      <div class="w-5 h-5 rounded-full bg-gray-200"></div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-5 h-5 absolute -bottom-1 -left-1 z-10"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          :d="link.icon"
+                        />
+                      </svg>
+                    </div>
+                    <a
+                      class="text-slate-800 hover:bg-slate-200 rounded-md transition-all duration-100 mr-2 px-2 py-2"
+                      :class="link.page=== curreentPage? 'font-bold':''"
+                      x-text="link.title"
+                      href="#"
+                    ></a>
+                  </li>
+                </template>
+              </ul>
+              <h2 class="font-bold text-orange-400 text-xl mb-5">فیلتر</h2>
+              <!-- product brand filter -->
+              <div
+                @click="brandFilter=!brandFilter"
+                class="flex items-center w-full mb-4 bg-white"
+              >
+                <div class="relative">
+                  <div class="w-5 h-5 rounded-full bg-gray-200"></div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5 absolute -bottom-1 -left-1 z-10"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"
+                    />
+                  </svg>
+                </div>
+                <p class="mr-2 ml-6 px-2 pt-2">برند محصول</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    :d="brandFilter?'m4.5 15.75 7.5-7.5 7.5 7.5':'m19.5 8.25-7.5 7.5-7.5-7.5'"
+                  />
+                </svg>
+              </div>
+              <form
+                action=""
+                x-show="brandFilter"
+                class="border-b border-slate-200 pb-3 mb-7"
+              >
+                <template x-for="brand in brands" :key="brand">
+                  <div class="flex items-center pb-5">
+                    <input
+                      type="checkbox"
+                      :id="brand"
+                      class="appearance-none block w-4 h-4 rounded-sm border border-slate-800 checked:bg-orange-400 checked:border-orange-500"
+                    />
+                    <label x-text="brand" :for="brand" class="pr-1.5"></label>
+                  </div>
+                </template>
+              </form>
+
+              <!-- product color filter -->
+              <div
+                @click="colorFilter=!colorFilter"
+                class="flex items-center w-full mb-4"
+              >
+                <div class="relative">
+                  <div class="w-5 h-5 rounded-full bg-gray-200">&nbsp;</div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5 absolute -bottom-1 -left-1 z-10"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"
+                    />
+                  </svg>
+                </div>
+                <p class="mr-2 ml-6 px-2 pt-2">رنگ محصول</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    :d="colorFilter?'m4.5 15.75 7.5-7.5 7.5 7.5':'m19.5 8.25-7.5 7.5-7.5-7.5'"
+                  />
+                </svg>
+              </div>
+              <form
+                action=""
+                x-show="colorFilter"
+                class="border-b border-slate-200 pb-3 mb-7"
+              >
+                <template x-for="color in colors" :key="color">
+                  <div class="flex items-center pb-5">
+                    <input
+                      type="checkbox"
+                      :id="color"
+                      class="appearance-none block w-4 h-4 rounded-sm border border-slate-800 checked:bg-orange-400 checked:border-orange-500"
+                    />
+                    <label x-text="color" :for="color" class="pr-1.5"></label>
+                  </div>
+                </template>
+              </form>
+              <!-- product price filter -->
+              <div
+                @click="priceFilter=!priceFilter"
+                class="flex items-center w-full mb-4"
+              >
+                <div class="relative">
+                  <div class="w-5 h-5 rounded-full bg-gray-200"></div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5 absolute -bottom-1 -left-1 z-10"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"
+                    />
+                  </svg>
+                </div>
+                <p class="mr-2 ml-4 pl-1 pr-2 pt-2">قیمت محصول</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    :d="colorFilter?'m4.5 15.75 7.5-7.5 7.5 7.5':'m19.5 8.25-7.5 7.5-7.5-7.5'"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
 
           <!-- breadcrumbs -->
           <div
@@ -211,14 +414,14 @@
           <!-- products -->
           <div class="col-span-12 md:col-span-8 lg:col-span-9 xl:col-span-10">
             <section
-              x-data="{products:[{id:1, title:'ساعت هوشمند اپل سری ٦',price:'٢٣,٤٥٦,٧٨٩ تومان'},
-          {id:2, title:'ساعت هوشمند اپل سری ٧',price:'٢٣,٤٥٦,٧٨٩ تومان'},
-          {id:3, title:'ساعت هوشمند اپل سری ٨',price:'٢٣,٤٥٦,٧٨٩ تومان'},
-          {id:9, title:'ساعت هوشمند اپل سری ٧',price:'٢٣,٤٥٦,٧٨٩ تومان'},
-          {id:4, title:'ساعت هوشمند اپل سری ٩',price:'٢٣,٤٥٦,٧٨٩ تومان'},
-          {id:5, title:'ساعت هوشمند اپل سری ٩',price:'٢٣,٤٥٦,٧٨٩ تومان'},
-          {id:7, title:'ساعت هوشمند اپل سری ٧',price:'٢٣,٤٥٦,٧٨٩ تومان'},
-          {id:6, title:'ساعت هوشمند اپل سری ٩',price:'٢٣,٤٥٦,٧٨٩ تومان'}]}"
+              x-data="{products:[{id:1, title:'گوشی آیفون ١٣ ، ١٢٨ گیگابایت ',price:'۵۴,۹۹۹,۰۰۰ تومان'},
+          {id:2, title:'گوشی آیفون ١٣ ، ١٢٨ گیگابایت ',price:'۵۴,۹۹۹,۰۰۰ تومان'},
+          {id:3, title:'گوشی آیفون ١٣ ، ١٢٨ گیگابایت ',price:'۵۴,۹۹۹,۰۰۰ تومان'},
+          {id:9, title:'گوشی آیفون ١٣ ، ١٢٨ گیگابایت ',price:'۵۴,۹۹۹,۰۰۰ تومان'},
+          {id:4, title:'گوشی آیفون ١٣ ، ١٢٨ گیگابایت ',price:'۵۴,۹۹۹,۰۰۰ تومان'},
+          {id:5, title:'گوشی آیفون ١٣ ، ١٢٨ گیگابایت ',price:'۵۴,۹۹۹,۰۰۰ تومان'},
+          {id:7, title:'گوشی آیفون ١٣ ، ١٢٨ گیگابایت ',price:'۵۴,۹۹۹,۰۰۰ تومان'},
+          {id:6, title:'گوشی آیفون ١٣ ، ١٢٨ گیگابایت ',price:'۵۴,۹۹۹,۰۰۰ تومان'}]}"
               class="grid grid-cols-2 gap-x-2.5 gap-y-8 pt-6 pb-2 px-0 mb-9 md:grid-cols-3 sm:gap-x-4 md:gap-x-6 md:gap-y-10 lg:grid-cols-4"
             >
               <!-- looping over products -->
@@ -251,7 +454,7 @@
                     <div class="w-full flex justify-center items-center">
                       <img
                         class="block max-w-full"
-                        src="/assets/images/apple-watch-7.png"
+                        src="./assets/images/iphone-13.png"
                         alt="apple-watch-7"
                       />
                     </div>
@@ -325,21 +528,24 @@
                     </div>
                   </div>
                   <div class="mb-2">
-                    <h2
-                      x-text="product.title"
-                      class="mb-2 text-slate-900 text-xs text-bold sm:text-sm md:text-base"
-                    ></h2>
+                    <a href="singleProduct.html" class="block">
+                      <h2
+                        x-text="product.title"
+                        class="mb-2 text-slate-900 text-xs text-bold sm:text-sm md:text-base"
+                      ></h2>
+                    </a>
                     <p
                       x-text="product.price"
                       class="text-orange-500 text-xs font-bold text-left md:text-base"
                     ></p>
                   </div>
 
-                  <button
+                  <a
+                    href="singleProduct.html"
                     class="block w-full py-2 hover:text-orange-600 text-center fomt-bold text-sm sm:text-sm md:text-base border-t border-slate-200 text-orange-500"
                   >
                     مشاهده و سفارش
-                  </button>
+                  </a>
                 </div>
               </template>
             </section>
@@ -486,8 +692,7 @@
                       brandFilter:false,
                       colorFilter:false,
                       priceFilter:false}"
-       
-        class="hidden  backdrop-blur-lg w-1/2 rounded-t-lg shadow-[0_-4px_8px_0_rgba(0,0,0,.1)] bg-red-100 px-4 py-6 flex-col gap-y-5"
+        class="hidden backdrop-blur-lg w-1/2 rounded-t-lg shadow-[0_-4px_8px_0_rgba(0,0,0,.1)] bg-red-100 px-4 py-6 flex-col gap-y-5"
       >
         <h2 class="font-bold text-orange-400 text-base mb-5">فیلتر</h2>
         <!-- product brand filter -->

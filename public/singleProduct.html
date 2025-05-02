@@ -68,9 +68,11 @@
                    curreentPage: 'home'}"
               class="flex items-center justify-between gap-x-2"
             >
-              <!-- class="flex items-center justify-between w-full lg:w-2/5 p-1 ml-16" -->
               <li>
-                <a class="block font-bold text-lg lg:text-2xl py-2" href="#">
+                <a
+                  class="block font-bold text-lg lg:text-2xl py-2"
+                  href="index.html"
+                >
                   <span class="text-slate-800">دیجی</span>‌<span
                     class="text-orange-500"
                     >تایز</span
@@ -88,6 +90,13 @@
                   ></a>
                 </li>
               </template>
+              <li>
+                <a
+                  class="block text-slate-800 lg:text-lg hover:bg-slate-200 rounded-md transition-all duration-100 py-2 px-4"
+                  href="cart.html"
+                  >🛒 سبد خرید
+                </a>
+              </li>
             </ul>
             <form action="" class="flex-1 max-w-xl mr-2">
               <div
@@ -120,7 +129,7 @@
       </header>
       <main>
         <section
-          class="grid  grid-cols-12 grid-rows-[55px_minmax(500px,_1fr) md:gap-8 px-4"
+          class="grid grid-cols-12 grid-rows-[55px_minmax(500px,_1fr) md:gap-8 px-4"
         >
           <!-- sidebar -->
           <div class="hidden md:block md:col-span-3 xl:col-span-2 row-span-2">
@@ -256,7 +265,9 @@
           </section>
 
           <!-- Single Product -->
-          <section class="col-span-12 md:col-span-9 xl:col-span-10 md:bg-white md:rounded-lg md:shadow-xl">
+          <section
+            class="col-span-12 md:col-span-9 xl:col-span-10 md:bg-white md:rounded-lg md:shadow-xl"
+          >
             <div
               class="flex flex-col gap-y-4 items-center md:flex-row md:gap-x-2 xl:gap-x-6 md:items-start md:mb-12 mb-6 md:p-2"
             >
@@ -266,7 +277,7 @@
               >
                 <img
                   class="block w-full h-auto"
-                  src="../assets/images/iphone-13.png"
+                  src="./assets/images/iphone-13.png"
                   alt="iphone-13"
                 />
 
@@ -278,7 +289,7 @@
                   >
                     <img
                       class="block w-full h-auto"
-                      src="../assets/images/white-transformed.webp"
+                      src="./assets/images/white-transformed.webp"
                       alt=""
                     />
                   </div>
@@ -287,7 +298,7 @@
                   >
                     <img
                       class="block w-full h-auto"
-                      src="../assets/images/pink-transformed.webp"
+                      src="./assets/images/pink-transformed.webp"
                       alt=""
                     />
                   </div>
@@ -296,7 +307,7 @@
                   >
                     <img
                       class="block w-full h-auto"
-                      src="../assets/images/black-transformed.webp"
+                      src="./assets/images/black-transformed.webp"
                       alt=""
                     />
                   </div>
@@ -469,17 +480,17 @@
                 </div>
                 <!-- product features -->
                 <div
-                  class="md:w-[90%] w-full p-4 md:rounded-none rounded-xl flex flex-col  justify-start  bg-white md:bg-transparent text-slate-800"
+                  class="md:w-[90%] w-full p-4 md:rounded-none rounded-xl flex flex-col justify-start bg-white md:bg-transparent text-slate-800"
                 >
                   <h2 class="md:text-lg xl:text-xl text-base mb-4 font-bold">
                     ویژگی‌های کالا
                   </h2>
                   <ul
                     x-data="{listItem:[{id:1,title:'حافظه داخلی:',description:'١٢٨ گیگابایت'},{id:2,title:'اندازه‌ی بازه صفحه نمایش:',description:'١٢٨ گیگابایت'},{id:3,title:'شبکه‌های ارتباطی:', description:'5G, 4G, 3G, 2G'}]}"
-                    class=" list-disc  pr-4  marker:text-orange-900 text-sm md:text-base"
+                    class="list-disc pr-4 marker:text-orange-900 text-sm md:text-base"
                   >
                     <template x-for="item in listItem" :key="item.id">
-                      <li class="text-sm ">
+                      <li class="text-sm">
                         <div class="md:flex items-center mb-4 gap-x-1">
                           <p
                             class="mb-2 md:mb-0"
@@ -640,7 +651,7 @@
               <div
                 class="hidden md:flex flex-col gap-y-4 items-center text-slate-800"
               >
-              <!-- review -->
+                <!-- review -->
                 <div class="p-4 mb-4">
                   <h2 class="font-bold md:text-xl mb-2">
                     نقد و بررسی این محصول
@@ -688,7 +699,7 @@
                   >
                     <img
                       class="max-w-[400px] block h-auto"
-                      src="../assets/images/apple-iphone-13-pro-max-1-removebg-preview.png"
+                      src="./assets/images/apple-iphone-13-pro-max-1-removebg-preview.png"
                       alt="apple iphone 13 promax"
                     />
                   </div>
@@ -978,7 +989,7 @@
       >
         <div class="hidden md:flex items-center mb-6 pr-1">
           <img
-            src="/assets/images/Digitize Logo.png"
+            src="./assets/images/Digitize Logo.png"
             alt="Digitize App Logo"
             class="block max-w-full w-14 h-14"
           />
@@ -1028,7 +1039,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6  stroke-orange-400"
+                class="w-6 h-6 stroke-orange-400"
               >
                 <path
                   stroke-linecap="round"
@@ -1047,7 +1058,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6  stroke-orange-400"
+                class="w-6 h-6 stroke-orange-400"
               >
                 <path
                   stroke-linecap="round"
@@ -1055,7 +1066,9 @@
                   d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
                 />
               </svg>
-              <span class="ml-1 text-xl text-slate-800 absolute top-0 left-7">info@digitize.com</span>
+              <span class="ml-1 text-xl text-slate-800 absolute top-0 left-7"
+                >info@digitize.com</span
+              >
             </div>
           </div>
         </div>
