@@ -1,7 +1,7 @@
 # Digitize App (Responsive)
 
 ## Project Screenshot
-![Digitize App Screenshot](/assets/images/screenshot.png)
+![Digitize App Screenshot](/public/assets/images/screenshot.png)
 
 This project is a simple ecommerce website using **Tailwind CSS** for styling and **Alpine.js** for simple interactive operations. The main pages include the home page, single product page, and cart page. The goal was to focus on layout, styling, and component interactivity using TailwindCSS and Alpine.js 
 
